@@ -3,6 +3,8 @@ package Euler;
 /**
  * Created by edwardwang on 3/4/16.
  *
+ * website: https://projecteuler.net/problem=548
+ *
  * A gozinta chain for n is a sequence {1,a,b,...,n} where each element properly divides the next.
  There are eight gozinta chains for 12:
  {1,12} ,{1,2,12}, {1,2,4,12}, {1,2,6,12}, {1,3,12}, {1,3,6,12}, {1,4,12} and {1,6,12}.

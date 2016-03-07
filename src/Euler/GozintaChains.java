@@ -68,9 +68,34 @@ public class GozintaChains {
     }
 
     private void findAllChainCombos(){
+        for(int i=1;i<links.size();i++){
+            chain = new ArrayList<Integer>();
+            chain.add(1);
+            if((i%chain.get(i-1)==0)){
+
+            }
+        }
+
+
         for(int i=0;i<links.size()-1;i++){
             for(int j=i+1;j<links.size();j++){
+                /**
+                 * every time the chain is enlarged, its combination will be recorded down in format
+                 * 1, x, gozintaNum
+                 * 1, x, x+y, gozintaNum
+                 * 1, x, x+y, x+y+z, gozintaNum
+                 *
+                 * need to exhaust all possible choices
+                 * recursive methods!
+                 * once the alg reaches end of poss chains for a number i.e. 1 2 4, it can go through 1 2 6 sequence!
+                 */
                 chain = new ArrayList<Integer>();
+
+
+
+
+
+
                 //handle situation where chain does not start with 1
                 if(links.get(i) != links.get(0)){
                     chain.add(links.get(0));

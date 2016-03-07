@@ -88,6 +88,7 @@ public class GozintaChains {
                     }else{
                         continue;
                     }
+                    
                     addNewChainPoss(chain);
                 }
             }

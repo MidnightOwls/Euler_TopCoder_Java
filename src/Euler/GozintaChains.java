@@ -68,24 +68,31 @@ public class GozintaChains {
     }
 
     private void findAllChainCombos(){
-        addFirstChain();
         for(int i=0;i<links.size()-1;i++){
-            chain = new ArrayList<Integer>();
-            chain.add(links.get(0));    //add first link
             for(int j=i+1;j<links.size();j++){
-                if((links.get(j)%links.get(i)==0)){
-                    if(links.get(j)%chain.get(chain.size()-1)==0){
+                chain = new ArrayList<Integer>();
+                //handle situation where chain does not start with 1
+                if(links.get(i) != links.get(0)){
+                    chain.add(links.get(0));
+                }
+                    chain.add(links.get(i));
+                //Make sure j%i==0
+                if((links.get(j)%links.get(i)==0) && (links.get(j)%chain.get(chain.size()-1)== 0)) {
+                    System.out.println(links.get(i) + " " + links.get(j));
+                    //handle case when chain does not end in 12
+                    if(links.get(j)!=gozintaNum){
                         chain.add(links.get(j));
-                        addNewChainPoss(chain); //Add newly link to the list of poss.
+                        chain.add(gozintaNum);
+                    }else if(links.get(j)==gozintaNum && chain.size()==1){
+                        chain.add(gozintaNum);
+                    }else{
+                        continue;
                     }
+                    addNewChainPoss(chain);
                 }
             }
         }
     }
-
-    /*
-    chain.remove(chain.size()-1);    //reset the last link of the chain
-     */
 
     /**
      * Add first chain: (1,gozintalNumber)
@@ -96,17 +103,16 @@ public class GozintaChains {
         listOfGozintaChains.add(chain);
     }
 
+    /**
+     * When adding adding possible chains, add the gozintaNum to the end
+     * of each link, because it has already been established that all links
+     * divide into gozintaNum == 0
+     * @param chain
+     */
     private void addNewChainPoss(List<Integer> chain){
         tempChain = new ArrayList<Integer>();
         tempChain.addAll(chain);
-
-        if(tempChain.get(tempChain.size()-1)!=gozintaNum){    //add only if the ending does not include the original gozinta number
-            tempChain.add(gozintaNum);
-            listOfGozintaChains.add(tempChain);
-        }
-
-        //tempChain.add(gozintaNum);
-        //listOfGozintaChains.add(tempChain);
+        listOfGozintaChains.add(tempChain);
     }
 
     private void print(List<Integer> list){

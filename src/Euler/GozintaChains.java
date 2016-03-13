@@ -55,7 +55,7 @@ public class GozintaChains {
         }
     }
 
-    public int getGozintalChainSize(){
+    public int getGozintaChainSize(){
         return listOfGozintaChains.size();
     }
 

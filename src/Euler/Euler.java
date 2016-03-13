@@ -8,6 +8,6 @@ public class Euler {
     public static void main(String[] args){
         GozintaChains gozintaChains = new GozintaChains(testNumber);
         gozintaChains.printGozintaChains();
-        System.out.println("Size of gozintal chain: "+gozintaChains.getGozintalChainSize());
+        System.out.println("Size of gozintal chain: "+gozintaChains.getGozintaChainSize());
     }
 }
